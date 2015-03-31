@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '0dfa7ff63c7025817a7be43b3b4917ea3595485be7ebe6f53a0cd2d06960671f641ed12df69cf568c249f7b1a6b6ebf90bd7d7f9cb875b79a78cc1b18352cf21'
-
+	config.secret_key = '2bb7491e5dc021750d27038b1a4fe2bea26a98cf8c0d818c60dd303d294e7c777cad6512666d6a74bdf6950425b19f183155ac32e4d5add59d275edeaf486135'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -242,18 +242,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
+  config.omniauth :facebook, ENV['facebook_public_key'], ENV['facebook_private_key']
 
-  # ==> Mountable engine configurations
-  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
-  # is mountable, there are some extra configurations to be taken into account.
-  # The following options are available, assuming the engine is mounted as:
-  #
-  #     mount MyEngine, at: '/my_engine'
-  #
-  # The router that invoked `devise_for`, in the example above, would be:
-  # config.router_name = :my_engine
-  #
-  # When using omniauth, Devise cannot automatically set Omniauth path,
-  # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+
