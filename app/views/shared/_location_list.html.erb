@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+		<b><%= course.name %> Listing</b>
+  </div>
+  <table class="table">
+    <tbody>
+      <% @locations.each do |location| %>
+        <%= render 'shared/location_row', course: course, location: location %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

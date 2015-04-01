@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 	root to: "home#index"
 	
   get 'find' => 'find#index'
-	get 'find/:course' => 'find#show', :as => 'show_course'
-	get 'find/:course/:building' => 'find#chat', :as => 'show_chat'
+	get 'find/:course_id' => 'find#show', :as => 'show_course'
+	get 'find/:course_id/:location_id' => 'find#chat', :as => 'show_chat'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
