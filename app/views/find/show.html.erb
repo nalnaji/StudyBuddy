@@ -1,3 +1,7 @@
-<div class="location-list">
+<%= form_tag show_course_path, :method => 'get', :class => 'form-search', :id => 'location-search', :autocomplete => 'off' do %>
+	<%= text_field_tag :search, nil, :class => 'form-control', :placeholder => 'Search by building name.' %>
+<% end %>
+<br />
+<div id="location-list">
 	<%= render 'shared/location_list', course: @course %>
 </div>

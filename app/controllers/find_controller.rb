@@ -1,10 +1,10 @@
 class FindController < ApplicationController
 	def index
-		@courses = Course.all
+		@courses = Course.search(params[:search])
 	end
 	def show
 		@course = Course.find(params[:course_id])
-		@locations = @course.locations
+		@locations = Location.search(params[:search])
 	end
 	def chat
 		@course = Course.find(params[:course_id])
