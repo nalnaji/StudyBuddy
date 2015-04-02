@@ -1,0 +1,5 @@
+<% publish_to "/chat/#{@message.chat.id}" do %>
+	$("#chat").append("<%= escape_javascript render('chat/message', message: @message) %>");
+	$("#chat").scrollTo("max");
+<% end %>
+$("#new_message")[0].reset();

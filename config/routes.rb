@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 	root to: "home#index"
-	
+	resources :messages	
   get 'find' => 'find#index'
 	get 'find/:course_id' => 'find#show', :as => 'show_course'
 	get 'find/:course_id/:location_id' => 'find#chat', :as => 'show_chat'

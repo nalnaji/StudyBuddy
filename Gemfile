@@ -55,7 +55,11 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'jquery-turbolinks'
 
 # Secrets Manager
 gem 'figaro'
 
+# Chat Stuff
+gem 'private_pub'
+gem 'thin'
