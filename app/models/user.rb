@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
+
+	has_and_belongs_to_many :chat
   def self.find_for_oauth(auth, signed_in_resource = nil)
 		# Get the identity and user if they exist:
 		identity = Identity.find_for_oauth(auth)
