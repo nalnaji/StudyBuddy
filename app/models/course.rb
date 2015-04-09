@@ -9,4 +9,12 @@ class Course < ActiveRecord::Base
 			all
 		end
 	end
+
+	def number_of_students
+		total = 0
+		self.chats.each do |chat|
+			total += chat.number_of_participants
+		end
+		total
+	end
 end

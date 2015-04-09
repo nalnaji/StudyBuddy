@@ -2,5 +2,5 @@
   <td>
     <%= link_to location.name, show_chat_path(course, location)  %>
   </td>
-  <td> 0 People<td>
+	<td> <%= location.number_of_students_in_course(course.id)%> People<td>
 </tr>
