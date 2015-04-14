@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 	get 'chat' => 'chat#index'
 	get 'chat/buddy_poll/:chat_id' => 'chat#buddy_poll', :as => 'poll_buddy_list'
 	delete 'chat/remove_from_chat/:chat_id' => 'chat#remove_from_chat', :as => 'remove_from_chat'
+  get 'home/get_buildings_for_course/:course_id' => 'home#get_buildings_for_course', :as => 'get_buildings_for_course'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,16 @@
+<div class="bs-component">
+  <div class="list-group">
+    <% if locations.empty? %>
+      <div class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Pick a class to the left</strong> to find out where people are studying!
+      </div>
+    <% else %>
+      <%= render :partial => 'location_row',
+                 :collection => locations,
+                 :as => :location
+       %>
+     <% end %>
+  </div>
+</div>
+
