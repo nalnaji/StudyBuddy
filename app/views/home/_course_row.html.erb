@@ -1,4 +1,4 @@
-<a href="#" class="list-group-item">
+<a href= <%= get_buildings_for_course_path(course.id) %> id="course-<%=course.id%>" class="list-group-item course-link">
   <%=course.name%>
   <span class="badge"><%=course.number_of_students%> People</span>
 </a>

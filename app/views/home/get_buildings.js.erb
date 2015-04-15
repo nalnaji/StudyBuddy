@@ -1,0 +1,5 @@
+$("#buildings-list").empty();
+$("#chatroom").empty();
+$("#buildings-list").html("<%=j render 'location_list', :locations => @locations, :course => @course %>")
+$(".course-link.active").removeClass("active");
+$("#course-<%= @course.id %>").addClass("active");

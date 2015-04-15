@@ -15,5 +15,5 @@
 //= require private_pub
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
-
+//= require listgroup
 //= require_tree .

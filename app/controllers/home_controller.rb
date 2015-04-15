@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     @locations = []
   end
   def get_buildings_for_course
-    @locations = Locations.find_by_course_id(params[:course_id])
+    @course = Course.find(params[:course_id])
+    @locations = Location.all
+    render 'get_buildings.js'
   end
 end

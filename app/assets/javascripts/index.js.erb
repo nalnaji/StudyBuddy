@@ -1,0 +1,7 @@
+$(document).ready(function() {
+  $(".course-link").click(function() {
+    $.get($(this).attr("href"));
+    return false;
+  });
+});
+
