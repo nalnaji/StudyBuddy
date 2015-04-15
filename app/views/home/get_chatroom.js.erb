@@ -1,0 +1,37 @@
+var id = window.setTimeout(function() {}, 0);
+while (id--) {
+  window.clearTimeout(id); // will do nothing if no timeout with id is present
+}
+$("#chat").trigger('leftchat');
+$("#chatroom").empty();
+$(".location-link.active").removeClass("active");
+$("#location-<%= @location.id %>").addClass("active");
+$("#chatroom").html("<%=j render 'chat/chatroom', :course => @course, :location => @location, :chat => @chat, :messages => @chat.messages %>");
+//initiate chat
+PrivatePub.unsubscribeAll();
+//start polling for the buddylist and sign in
+$(function() {
+  setTimeout(updateBuddylist, 5000);
+});
+function updateBuddylist() {
+  $.getScript('/chat/buddy_poll/'+<%=@chat.id%>+'.js');
+  setTimeout(updateBuddylist, 5000);
+}
+//Make sure current user's messages are blue
+$(".user-<%=current_user.id%>").removeClass("well well-sm pull-left"); 
+$(".user-<%=current_user.id%>").addClass("alert alert-info pull-right"); 
+$("#chat").bind('contentchanged', function() {
+  $(".user-<%=current_user.id%>").removeClass("well well-sm pull-left"); 
+  $(".user-<%=current_user.id%>").addClass("alert alert-info pull-right"); 
+});
+$("#chat").bind('leftchat', function() {
+  jQuery.ajax({type: "DELETE", url:"<%=remove_from_chat_path( @chat.id) %>", async:false});
+});
+//logic to signout of chat
+$(window).unload(function() {
+  jQuery.ajax({type: "DELETE", url:"<%=remove_from_chat_path( @chat.id) %>", async:false});
+});
+$("#chat").scrollTo("max");
+//Subcribe to channel
+$("#subscription").html('<%= subscribe_to "/chat/#{@chat.id}" %>');
+$("#message_content").focus();

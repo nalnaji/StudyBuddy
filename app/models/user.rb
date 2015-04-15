@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	has_and_belongs_to_many :chat
+	has_and_belongs_to_many :chats
   def self.find_for_oauth(auth, signed_in_resource = nil)
 		# Get the identity and user if they exist:
 		identity = Identity.find_for_oauth(auth)

@@ -4,13 +4,16 @@
 <div class="col-md-3">
   <%= render 'location_list', :locations => @locations, :course => nil%>
 </div>
-<div id="chatroom">
-  <div class="col-md-4">
-    <%=#render 'chat/chatroom', :messages => @messages, :course => @course, :location => @location, :chat => @chat %>
-  </div>
-  <div class="col-md-2">
-    <%=#render 'chat/buddylist', :participants => @participants %>
-  </div>
+<div>
+  <h2>Chat</h2>
+<div id="chatroom" class="col-md-4">
+  <%#render 'chat/chatroom', :messages => @messages, :course => @course, :location => @location, :chat => @chat %>
+</div>
+<div class="col-md-2">
+  <%#render 'chat/buddylist', :participants => @participants %>
+</div>
+</div>
+<div id="subscription">
 </div>
 <!--
 <%= link_to 'Check-in', find_path, :class => 'btn btn-primary btn-lg' %>

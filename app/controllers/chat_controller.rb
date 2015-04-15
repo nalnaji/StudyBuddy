@@ -13,7 +13,9 @@ class ChatController < ApplicationController
   def remove_from_chat
     @chat = Chat.find(params[:chat_id])
     @user = current_user
-    @chat.users.delete(@user)
+    @user.chats.each do |chat|
+      @user.chats.delete(chat)
+    end
     render nothing: true
   end
   private

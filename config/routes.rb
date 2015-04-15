@@ -6,15 +6,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-	root to: "home#index"
-	resources :messages	
+  root to: "home#index"
+  resources :messages	
   get 'find' => 'find#index'
-	get 'find/:course_id' => 'find#show', :as => 'show_course'
-	get 'find/:course_id/:location_id' => 'find#chat', :as => 'show_chat'
-	get 'chat' => 'chat#index'
-	get 'chat/buddy_poll/:chat_id' => 'chat#buddy_poll', :as => 'poll_buddy_list'
-	delete 'chat/remove_from_chat/:chat_id' => 'chat#remove_from_chat', :as => 'remove_from_chat'
+  get 'find/:course_id' => 'find#show', :as => 'show_course'
+  get 'find/:course_id/:location_id' => 'find#chat', :as => 'show_chat'
+  get 'chat' => 'chat#index'
+  get 'chat/buddy_poll/:chat_id' => 'chat#buddy_poll', :as => 'poll_buddy_list'
+  delete 'chat/remove_from_chat/:chat_id' => 'chat#remove_from_chat', :as => 'remove_from_chat'
   get 'home/get_buildings_for_course/:course_id' => 'home#get_buildings_for_course', :as => 'get_buildings_for_course'
+  get 'home/get_chatroom/:course_id/:location_id' => 'home#get_chatroom', :as => 'get_chatroom'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
