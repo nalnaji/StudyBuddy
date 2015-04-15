@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Chat for <%= course.name %> in <%= location.name %></h3>
+  </div>
+  <div id="chat" class="panel-body">
+    <%= render :partial => 'chat/message', :collection => messages, :as => :message %>
+  </div>
+
+<%= form_for Message.new, :html => {:class => "input-group"}, :remote => true do |f| %>
+  <%= f.text_field :content, :class => "form-control", :autofocus => true  %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :chat_id, :value => chat.id %>
+  <span class="input-group-btn">
+  <%= f.submit  "Send", :class=>"btn btn-primary" %>
+</span>
+<% end %>
+
+</div>

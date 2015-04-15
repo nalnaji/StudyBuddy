@@ -1,4 +1,6 @@
-<li>
-	<span class="chatname_tag"><%= message.user.name %>: </span>
-	<%= message.content %>
-</li>
+<div class="row">
+  <div class="pull-left message well well-sm user-<%=message.user.id%>">
+    <p><%= message.content %></p>
+    <small><cite title="Source Title"><%= message.user.name %></cite></small>
+  </div>
+</div>

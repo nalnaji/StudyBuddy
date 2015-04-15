@@ -1,3 +1,11 @@
-<li>
-	<span><%= user.name %></span>
-</li>
+<div class="panel panel-info" >
+  <div class="panel-heading">
+    <h3 class="panel-title"> Buddylist </h3>
+  </div>
+  <div class="panel-body" id="buddylist">
+    <ul class="list-group">
+     <%= render :partial => 'chat/buddylist_user', :collection => participants, :as => :user %> 
+   </ul>
+  </div>
+</div>
+

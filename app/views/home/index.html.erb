@@ -1,12 +1,15 @@
-<div class="col-md-4">
+<div class="col-md-3">
   <%= render 'course_list', :courses => @courses %>
 </div>
-<div class="col-md-4">
+<div class="col-md-3">
   <%= render 'location_list', :locations => @locations, :course => nil%>
 </div>
-<div class="col-md-4">
-  <div id="chatroom">
-    <h2> Chat </h2>
+<div id="chatroom">
+  <div class="col-md-4">
+    <%=#render 'chat/chatroom', :messages => @messages, :course => @course, :location => @location, :chat => @chat %>
+  </div>
+  <div class="col-md-2">
+    <%=#render 'chat/buddylist', :participants => @participants %>
   </div>
 </div>
 <!--

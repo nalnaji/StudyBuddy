@@ -1,33 +1,28 @@
-<h> Chat for <%= @course.name %> in <%= @location.name %> </h>
-<ul id="chat">
-	<%= render :partial => 'chat/message', :collection => @messages, :as => :message %>
-</ul>
-
-<%= form_for Message.new, :remote => true do |f| %>
-	<%= f.text_field :content, :autofocus => true  %>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.hidden_field :chat_id, :value => @chat.id %>
-	<%= f.submit "Send" %>
-<% end %>
-
-<ul id="buddylist">
-	<%= render :partial => 'chat/buddylist', :collection => @participants, :as => :user %>
-</ul>
-
+<div class="col-md-4">
+  <%= render 'chat/chatroom', :messages => @messages, :course => @course, :location => @location, :chat => @chat %>
+</div>
+<div class="col-md-2">
+  <%= render 'chat/buddylist', :participants => @participants %>
+</div>
 <script type='text/javascript'>
-	$(function() {
-			chat_id = <%= @chat.id %> 
-			setTimeout(updateBuddylist, 5000);
-	});
-
-	function updateBuddylist() {
-		$.getScript('/chat/buddy_poll/'+chat_id+'.js');
-		setTimeout(updateBuddylist, 5000);
-	}
-	$(window).unload(function() {
-		jQuery.ajax({type: "DELETE", url:"<%=remove_from_chat_path( @chat.id) %>", async:false});
-	});
-	PrivatePub.unsubscribeAll();
+  $(".user-<%=current_user.id%>").removeClass("well well-sm pull-left"); 
+  $(".user-<%=current_user.id%>").addClass("alert alert-info pull-right"); 
+  $(function() {
+      chat_id = <%= @chat.id %> 
+      setTimeout(updateBuddylist, 5000);
+  });
+  $("#chat").bind('contentchanged', function() {
+    $(".user-<%=current_user.id%>").removeClass("well well-sm pull-left"); 
+    $(".user-<%=current_user.id%>").addClass("alert alert-info pull-right"); 
+  });
+  function updateBuddylist() {
+    $.getScript('/chat/buddy_poll/'+chat_id+'.js');
+    setTimeout(updateBuddylist, 5000);
+  }
+  $(window).unload(function() {
+    jQuery.ajax({type: "DELETE", url:"<%=remove_from_chat_path( @chat.id) %>", async:false});
+  });
+  PrivatePub.unsubscribeAll();
 </script>
 <%= subscribe_to "/chat/#{@chat.id}" %>
 
