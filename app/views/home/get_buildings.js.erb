@@ -1,4 +1,5 @@
 $("#chat").trigger('leftchat');
+$("#participants").empty();
 $("#buildings-list").empty();
 $("#chatroom").empty();
 $("#buildings-list").html("<%=j render 'location_list', :locations => @locations, :course => @course %>")
@@ -13,4 +14,10 @@ $(".location-link").click(function() {
     window.clearTimeout(id); // will do nothing if no timeout with id is present
   }
   return false;
+});
+$(function() {
+  $('#location-search input').keyup(function() {
+    $.get($('#location-search').attr('action'), $('#location-search').serialize(), null, 'script');
+    return false;
+  });
 });

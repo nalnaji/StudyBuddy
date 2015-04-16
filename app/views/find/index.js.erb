@@ -1,1 +1,17 @@
-$('#course-list').html("<%= escape_javascript(render('shared/course_list')) %>");
+$('#course-list').html("<%= escape_javascript(render :partial => 'home/course_row',
+                                                     :collection => @courses,
+                                                     :as => :course) %>");
+$(".course-link").click(function() {
+  $.get($(this).attr("href"));
+  var id = window.setTimeout(function() {}, 0);
+  while (id--) {
+    window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
+  $("#chat").trigger('leftchat');
+  return false;
+});
+$("#chat").trigger('leftchat');
+$("#participants").empty();
+$("#buildings-list").empty();
+$("#chatroom").empty();
+$("#buildings-list").html('<h2>Location Listing</h2>' + '<%=j render "shared/alert_message", :message => "<strong>Pick a class to the left </strong> to find out where people are studying!"%>');

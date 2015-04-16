@@ -2,11 +2,13 @@ var id = window.setTimeout(function() {}, 0);
 while (id--) {
   window.clearTimeout(id); // will do nothing if no timeout with id is present
 }
+$("#participants").empty();
 $("#chat").trigger('leftchat');
 $("#chatroom").empty();
 $(".location-link.active").removeClass("active");
 $("#location-<%= @location.id %>").addClass("active");
 $("#chatroom").html("<%=j render 'chat/chatroom', :course => @course, :location => @location, :chat => @chat, :messages => @chat.messages %>");
+$("#participants").html("<%=j render 'chat/buddylist', :participants => @chat.users %>");
 //initiate chat
 PrivatePub.unsubscribeAll();
 //start polling for the buddylist and sign in

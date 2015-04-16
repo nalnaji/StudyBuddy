@@ -4,11 +4,17 @@
     <% if locations.empty? %>
       <%= render 'shared/alert_message', :message => "<strong>Pick a class to the left </strong> to find out where people are studying!"%>
     <% else %>
+    <%= form_tag show_course_path(@course.id), :method => 'get', :class => 'form-search', :id => 'location-search', :autocomplete => 'off' do %>
+      <%= text_field_tag :search, nil, :class => 'form-control', :placeholder => 'Search by building name.', :autofocus => true  %>
+      <%= hidden_field_tag :course, @course.id %>
+    <% end %>
+    <div id="location-list">
       <%= render :partial => 'location_row',
                  :collection => locations,
                  :as => :location,
                  locals: {:course => course}
        %>
+     </div>
      <% end %>
   </div>
 </div>

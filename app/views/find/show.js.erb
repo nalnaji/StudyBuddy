@@ -1,1 +1,20 @@
-$('#location-list').html("<%= escape_javascript(render('shared/location_list', course: @course )) %>");
+$('#location-list').html("<%= escape_javascript(
+      render :partial => 'home/location_row',
+                 :collection => @locations,
+                 :as => :location,
+                 locals: {:course => @course}
+) %>");
+
+$(".location-link").click(function() {
+  $("#chat").trigger('leftchat');
+  $.get($(this).attr("href"));
+  var id = window.setTimeout(function() {}, 0);
+  while (id--) {
+    window.clearTimeout(id); // will do nothing if no timeout with id is present
+  }
+  return false;
+});
+$("#chat").trigger('leftchat');
+$("#participants").empty();
+$("#chatroom").empty();
+$("#chatroom").html("<%=j render 'shared/alert_message', :message => '<strong>Pick a location on the left</strong> to start chatting!' %>")

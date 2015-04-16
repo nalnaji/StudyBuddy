@@ -1,12 +1,14 @@
 class HomeController < ApplicationController
   def index
-    @courses = Course.all
+    @courses = Course.all.sort_by(&:number_of_students).reverse
     @locations = []
     @chat = nil
   end
   def get_buildings_for_course
     @course = Course.find(params[:course_id])
-    @locations = Location.all
+    @locations = Location.all.sort_by do |location|
+      location.number_of_students_in_course(@course.id)    
+    end.reverse
     render 'get_buildings.js'
   end
   def get_chatroom
