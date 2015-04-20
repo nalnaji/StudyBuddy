@@ -13,5 +13,5 @@ $(".course-link").click(function() {
 $("#chat").trigger('leftchat');
 $("#participants").empty();
 $("#buildings-list").empty();
-$("#chatroom").empty();
+$("#chatroom").html('<h2>Chat</h2>');
 $("#buildings-list").html('<h2>Location Listing</h2>' + '<%=j render "shared/alert_message", :message => "<strong>Pick a class to the left </strong> to find out where people are studying!"%>');

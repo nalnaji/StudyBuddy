@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require private_pub
+//= require bootstrap
 //= require jquery.turbolinks
-//= require bootstrap-sprockets
 //= require listgroup
 //= require_tree .

@@ -4,7 +4,7 @@
     <%= form_tag find_path, :method => 'get', :class => 'form-search', :id => 'course-search', :autocomplete => 'off' do %>
       <%= text_field_tag :search, nil, :class => 'form-control', :placeholder => 'Search by course name.', :autofocus => true  %>
     <% end %>
-    <div id="course-list">
+    <div id="course-list" class="page-height">
       <%= render :partial => 'course_row',
                  :collection => courses,
                  :as => :course

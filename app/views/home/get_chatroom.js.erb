@@ -7,7 +7,8 @@ $("#chat").trigger('leftchat');
 $("#chatroom").empty();
 $(".location-link.active").removeClass("active");
 $("#location-<%= @location.id %>").addClass("active");
-$("#chatroom").html("<%=j render 'chat/chatroom', :course => @course, :location => @location, :chat => @chat, :messages => @chat.messages %>");
+$("#chatroom").html("<h2>Chat</h2>");
+$("#chatroom").append("<%=j render 'chat/chatroom', :course => @course, :location => @location, :chat => @chat, :messages => @chat.messages %>");
 $("#participants").html("<%=j render 'chat/buddylist', :participants => @chat.users %>");
 //initiate chat
 PrivatePub.unsubscribeAll();

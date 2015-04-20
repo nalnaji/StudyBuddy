@@ -16,5 +16,5 @@ $(".location-link").click(function() {
 });
 $("#chat").trigger('leftchat');
 $("#participants").empty();
-$("#chatroom").empty();
-$("#chatroom").html("<%=j render 'shared/alert_message', :message => '<strong>Pick a location on the left</strong> to start chatting!' %>")
+$("#chatroom").html('<h2>Chat</h2>');
+$("#chatroom").append("<%=j render 'shared/alert_message', :message => '<strong>Pick a location on the left</strong> to start chatting!' %>")

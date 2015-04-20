@@ -1,11 +1,11 @@
 $("#chat").trigger('leftchat');
 $("#participants").empty();
 $("#buildings-list").empty();
-$("#chatroom").empty();
+$("#chatroom").html('<h2>Chat</h2>');
 $("#buildings-list").html("<%=j render 'location_list', :locations => @locations, :course => @course %>")
 $(".course-link.active").removeClass("active");
 $("#course-<%= @course.id %>").addClass("active");
-$("#chatroom").html("<%=j render 'shared/alert_message', :message => '<strong>Pick a location on the left</strong> to start chatting!' %>")
+$("#chatroom").append("<%=j render 'shared/alert_message', :message => '<strong>Pick a location on the left</strong> to start chatting!' %>")
 $(".location-link").click(function() {
   $("#chat").trigger('leftchat');
   $.get($(this).attr("href"));

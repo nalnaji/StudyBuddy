@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @courses = Course.all.sort_by(&:number_of_students).reverse
+    @courses = Course.all.sort_by(&:number_of_students).reverse.take(20)
     @locations = []
     @chat = nil
   end
