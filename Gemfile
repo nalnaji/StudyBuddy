@@ -69,3 +69,6 @@ gem 'seed_dump'
 
 # heroku fix?
 gem 'rails_12factor'
+
+# Chat server
+gem 'foreman'
