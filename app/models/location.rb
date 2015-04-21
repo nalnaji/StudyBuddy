@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
 
   def self.search(search, course)
     if search
-      Location.where('name LIKE ?', "%#{search}%").sort_by do |location|
+      Location.where('lower(name) LIKE ?', "%#{search.downcase}%").sort_by do |location|
         location.number_of_students_in_course(course)
       end.reverse
     else
