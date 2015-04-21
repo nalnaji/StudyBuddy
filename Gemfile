@@ -63,3 +63,6 @@ gem 'figaro'
 # Chat Stuff
 gem 'private_pub'
 gem 'thin'
+
+# Seed
+gem 'seed_dump'

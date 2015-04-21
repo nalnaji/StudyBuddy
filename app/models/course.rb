@@ -17,4 +17,10 @@ class Course < ActiveRecord::Base
     end
     total
   end
+
+  def as_json(options={})
+    super(:only => [:id, :name],
+          :methods => [:number_of_students] 
+         )
+  end
 end

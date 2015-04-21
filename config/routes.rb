@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   delete 'chat/remove_from_chat/:chat_id' => 'chat#remove_from_chat', :as => 'remove_from_chat'
   get 'home/get_buildings_for_course/:course_id' => 'home#get_buildings_for_course', :as => 'get_buildings_for_course'
   get 'home/get_chatroom/:course_id/:location_id' => 'home#get_chatroom', :as => 'get_chatroom'
+
+
+
+  @API
+  get 'courses' => 'home#index'
+  get 'locations/:course_id' => 'home#get_buildings_for_course'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
