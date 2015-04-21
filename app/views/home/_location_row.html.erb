@@ -1,5 +1,5 @@
 <a href="<%=get_chatroom_path(course.id, location.id)%>" id="location-<%=location.id%>" class="location-link list-group-item">
   <%=location.name%>
-  <span class="badge"><%=location.number_of_students_in_course(course.id)%> People</span>
+  <span class="badge"><%=pluralize( location.number_of_students_in_course(course.id), 'Person' ) %></span>
 </a>
 
