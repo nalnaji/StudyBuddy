@@ -10,10 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
 //= require private_pub
 //= require bootstrap
 //= require jquery.turbolinks
 //= require listgroup
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
