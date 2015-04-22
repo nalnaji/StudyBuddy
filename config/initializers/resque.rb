@@ -1,6 +1,6 @@
 require 'resque_scheduler'
 
-Resque.redis = ENV["REDISTOGO_URL"])
+Resque.redis = ENV["REDISTOGO_URL"]
 Resque.redis.namespace = "resque:StudyBuddy"
 
 # If you want to be able to dynamically change the schedule,
