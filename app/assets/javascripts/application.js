@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require private_pub
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap
 //= require jquery.turbolinks
 //= require listgroup
-//= require jquery
-//= require jquery_ujs
 //= require_tree .
