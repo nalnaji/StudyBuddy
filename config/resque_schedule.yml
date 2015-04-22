@@ -1,0 +1,5 @@
+kick_inactive_users_job:
+  every: 1800s
+  class: KickInactiveUsersJob
+  args:
+  description: Kicks users that havent sent requests in a while

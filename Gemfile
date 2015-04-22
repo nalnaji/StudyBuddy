@@ -72,3 +72,8 @@ gem 'rails_12factor'
 
 # Chat server
 gem 'foreman'
+
+# Background Jobs
+gem 'resque'
+gem 'resque-scheduler', '~> 2.5.5'
+gem 'redis', '~> 3.0.4'
