@@ -643,7 +643,7 @@
 
 .message {
   max-width: 400px;
-  overflow: scroll;
+  overflow: hidden !important;
   margin: 10px; }
 
 #chat {
@@ -6778,7 +6778,7 @@ button.close {
 
 .message {
   max-width: 400px;
-  overflow: scroll;
+  overflow: hidden !important;
   margin: 10px; }
 
 #chat {
