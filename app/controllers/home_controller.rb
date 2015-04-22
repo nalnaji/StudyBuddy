@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     end.reverse
     respond_to do |format|
       format.js { render 'get_buildings.js' }
-      format.json { render json: @locations }
+      format.json { render json: @locations.to_json(:course_id => @course.id) }
     end
   end
   def get_chatroom

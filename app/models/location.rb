@@ -25,4 +25,9 @@ class Location < ActiveRecord::Base
     end
     0
   end
+  def as_json(options = {})
+    json = super(:except => [:created_at, :updated_at])
+    json['number_of_students'] = number_of_students_in_course(options[:course_id])
+    json
+  end
 end
