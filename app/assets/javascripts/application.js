@@ -11,9 +11,17 @@
 // about supported directives.
 //
 //= require private_pub
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require jquery.turbolinks
 //= require listgroup
+//= require underscore
+//= require backbone
+//= require study_buddy
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
