@@ -1,0 +1,3 @@
+<h2> Course Listing </h2>
+<input id = 'search_courses' class = 'form-control' placeholder = 'Search by course name.' autofocus = 'autofocus'>
+<div id="course-list" class="page-height"></div>

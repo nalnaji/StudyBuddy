@@ -77,3 +77,5 @@ gem 'foreman'
 gem 'resque'
 gem 'resque-scheduler', '~> 2.5.5'
 gem 'redis', '~> 3.0.4'
+
+gem 'backbone-on-rails'

@@ -1,12 +1,12 @@
 class HomeController < ApplicationController
   def index
-    @courses = Course.all.sort_by(&:number_of_students).reverse.take(20)
-    @locations = []
-    @chat = nil
-    respond_to do |format|
-      format.html { render 'index' }
-      format.json { render json: @courses }
-    end
+#    @courses = Course.all.sort_by(&:number_of_students).reverse.take(20)
+#    @locations = []
+#    @chat = nil
+#    respond_to do |format|
+#      format.html { render 'index' }
+#      format.json { render json: @courses }
+#    end
   end
   def get_buildings_for_course
     @course = Course.find(params[:course_id])

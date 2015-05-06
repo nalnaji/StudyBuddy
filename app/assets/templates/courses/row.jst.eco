@@ -1,0 +1,7 @@
+<a class="list-group-item course_link">
+  <%= @course.get('name') %>
+  <% if @course.number_of_students == 1: %>
+    <span class="badge"><%= @course.get('number_of_students') + ' Person' %></span>
+  <% else: %>
+    <span class="badge"><%= @course.get('number_of_students') + ' People' %></span>
+</a>

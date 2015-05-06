@@ -40,4 +40,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   ENV["REDISTOGO_URL"] = 'redis://localhost:6379'
+  ENV["facebook_public_key"] = '822654351143739'
+  ENV["facebook_private_key"] = 'f7c92eed73dc4f62d76c001cb54596a9'
 end

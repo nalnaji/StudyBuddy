@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :locations
+  resources :courses
 	devise_for :users, :controllers => { registrations: 'registrations' , 
 																			 omniauth_callbacks: 'omniauth_callbacks' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root to: "home#index"
+  root to: "main#index"
   resources :messages	
   get 'find' => 'find#index'
   get 'find/:course_id' => 'find#show', :as => 'show_course'
@@ -17,7 +19,10 @@ Rails.application.routes.draw do
   get 'home/get_buildings_for_course/:course_id' => 'home#get_buildings_for_course', :as => 'get_buildings_for_course'
   get 'home/get_chatroom/:course_id/:location_id' => 'home#get_chatroom', :as => 'get_chatroom'
 
-
+  scope "api" do
+    resources :courses, :defaults => {:format => 'json'}
+    resources :locations, :defaults => {:format => 'json'}
+  end
 
   @API
   get 'courses' => 'home#index'
