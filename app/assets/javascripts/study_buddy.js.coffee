@@ -3,9 +3,13 @@ window.StudyBuddy =
   Collections: {}
   Views: {}
   Routers: {}
+  vent: _.extend({}, Backbone.Events)
   initialize: ->
     new StudyBuddy.Routers.Courses()
+    new StudyBuddy.Routers.Locations()
     Backbone.history.start()
-
+    setInterval ->
+      StudyBuddy.vent.trigger('tick:10secs')
+    , 5000
 $(document).ready ->
   StudyBuddy.initialize()

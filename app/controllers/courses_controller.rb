@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   respond_to :json
   
   def index
-    respond_with Course.all
+    respond_with Course.search('')
   end
 
   def show
@@ -19,6 +19,10 @@ class CoursesController < ApplicationController
 
   def destroy
     respond_with Course.destroy(params[:id])
+  end
+
+  def search
+    respond_with Course.search(params[:query])
   end
 	private
 	

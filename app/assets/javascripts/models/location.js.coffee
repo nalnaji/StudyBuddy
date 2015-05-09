@@ -1,8 +1,8 @@
-class StudyBuddy.Models.Course extends Backbone.Model
+class StudyBuddy.Models.Location extends Backbone.Model
   setSelected: ->
     this.collection.setSelected(this)
 
-  urlRoot: 'api/courses'
+  urlRoot: 'api/locations'
 
   defaults:
     selected: false

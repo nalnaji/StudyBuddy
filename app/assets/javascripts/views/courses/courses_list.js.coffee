@@ -2,13 +2,24 @@ class StudyBuddy.Views.CoursesList extends Backbone.View
   template: JST['courses/list']
   className: 'bs-component list-group'
   initialize: ->
-    @collection.on('sync', @render, this)
+    @listenTo @collection, 'remove', @update
+    @listenTo @collection, 'add', @update
+
+  events:
+    'keyup #search_courses': 'search'
 
   render: ->
     $(@el).html(@template())
-    $("#search_courses").focus()
-    @collection.each(@appendCourse)
+    @update()
     this
+
+  update: ->
+    $("#course-list").empty()
+    @collection.each(@appendCourse)
+    
+  search: ->
+    query = $("#search_courses").val()
+    @collection.search(query)
 
   appendCourse: (course) =>
     view = new StudyBuddy.Views.CoursesRow(model: course)

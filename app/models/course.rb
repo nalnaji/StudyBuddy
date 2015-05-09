@@ -6,7 +6,7 @@ class Course < ActiveRecord::Base
     if search
       Course.where('lower(name) LIKE ?', "%#{search.downcase}%").sort_by(&:number_of_students).reverse
     else
-      all
+      all.reverse
     end
   end
 

@@ -1,6 +1,10 @@
-<a class="list-group-item course_link">
+<% if @course.get('selected'): %>
+  <a class="list-group-item course_link active">
+<% else: %>
+  <a class="list-group-item course_link">
+<% end %>
   <%= @course.get('name') %>
-  <% if @course.number_of_students == 1: %>
+  <% if @course.get('number_of_students') == 1: %>
     <span class="badge"><%= @course.get('number_of_students') + ' Person' %></span>
   <% else: %>
     <span class="badge"><%= @course.get('number_of_students') + ' People' %></span>

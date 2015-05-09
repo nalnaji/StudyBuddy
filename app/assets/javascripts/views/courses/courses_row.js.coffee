@@ -8,6 +8,10 @@ class StudyBuddy.Views.CoursesRow extends Backbone.View
     $(@el).html(@template(course: @model))
     this
   
+  initialize: ->
+    @listenTo @model, 'change', @render
+
   selectCourse: (event) ->
-    name = @model.get('name')
-    alert(name)
+    @model.setSelected()
+    Backbone.history.navigate('course/' + @model.get('id'))
+    this.render()

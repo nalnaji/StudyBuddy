@@ -1,0 +1,12 @@
+<% if @location.get('selected'): %>
+  <a class="list-group-item locations_link active">
+<% else: %>
+  <a class="list-group-item locations_link">
+<% end %>
+
+  <%= @location.get('name') %>
+  <% if @location.get('number_of_students') == 1: %>
+    <span class="badge"><%= @location.get('number_of_students') + ' Person' %></span>
+  <% else: %>
+    <span class="badge"><%= @location.get('number_of_students') + ' People' %></span>
+</a>
