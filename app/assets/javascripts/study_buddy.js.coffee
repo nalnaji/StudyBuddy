@@ -7,6 +7,7 @@ window.StudyBuddy =
   initialize: ->
     new StudyBuddy.Routers.Courses()
     new StudyBuddy.Routers.Locations()
+    new StudyBuddy.Routers.Chats()
     Backbone.history.start()
     setInterval ->
       StudyBuddy.vent.trigger('tick:10secs')

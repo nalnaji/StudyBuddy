@@ -1,10 +1,9 @@
 class StudyBuddy.Routers.Locations extends Backbone.Router
   routes:
-    'banana/:courseid': 'showChat'
+    'course/:courseid/location/:locationid': 'showChat'
 
   initialize: ->
-    @locations = new StudyBuddy.Collections.Locations()
-    @locations.fetch()
+    @locations = locations
     @listenTo StudyBuddy.vent, 'courses:selected', @showLocations
 
   showLocations: (course) ->
@@ -14,5 +13,10 @@ class StudyBuddy.Routers.Locations extends Backbone.Router
     $('#locations_list').html(view.render().el)
     $("#search_locations").focus()
   
- showChat: (courseid) ->
-   console.log('show chat :D')
+  showChat: (courseid, locationid) ->
+    StudyBuddy.vent.trigger 'browser:showCourse', courseid
+    loc = @locations.get locationid
+    @locations.setSelected(loc)
+    view = new StudyBuddy.Views.LocationsList(collection: @locations)
+    $('#locations_list').html(view.render().el)
+    $("#search_locations").focus()

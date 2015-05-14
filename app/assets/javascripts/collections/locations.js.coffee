@@ -7,12 +7,16 @@ class StudyBuddy.Collections.Locations extends Backbone.Collection
     else
       '/api/locations/course/-1'
 
+  comparator: (location) ->
+    -location.get('number_of_students')
+
   initialize: ->
     @course = null
     @query = ''
     @selected = null
     @listenTo StudyBuddy.vent, 'courses:selected', @resetSelected
     @listenTo StudyBuddy.vent, 'tick:10secs', @poll
+    @listenTo this, 'sync', @sort
 
   poll: ->
     this.fetch() if @course
@@ -31,8 +35,8 @@ class StudyBuddy.Collections.Locations extends Backbone.Collection
       @selected.set('selected', false)
     location.set('selected', true)
     @selected = location
-    Backbone.trigger 'locations:selected'
-    Backbone.history.navigate('course/' + @course.get('id') + '/location/' + @selected.get 'id', true)
+    StudyBuddy.vent.trigger 'locations:selected', @selected
+    Backbone.history.navigate('course/' + @course.get('id') + '/location/' + @selected.get 'id')
 
   model: StudyBuddy.Models.Location
 
@@ -42,4 +46,5 @@ class StudyBuddy.Collections.Locations extends Backbone.Collection
     @selected = null
     if @course
       Backbone.history.navigate('course/' + @course.get 'id')
-    Backbone.trigger 'locations:deselected'
+    StudyBuddy.vent.trigger 'locations:deselected'
+    console.log "locations reset"

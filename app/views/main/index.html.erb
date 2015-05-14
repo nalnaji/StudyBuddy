@@ -1,15 +1,15 @@
 <div id="courses-list" class="col-md-3">
   Loading...
 </div>
-<div id="locations_list" class="col-md-3">
+<div id="locations_list" class="col-md-3"></div>
+<div id="chatroom" class="col-md-4"></div>
+<div id="participants" class="col-md-2">
+  <%#render 'chat/buddylist', :participants => @participants %>
 </div>
-<div>
-  <div id="chatroom" class="col-md-4">
-    <%#render 'chat/chatroom', :messages => @messages, :course => @course, :location => @location, :chat => @chat %>
-  </div>
-  <div id="participants" class="col-md-2">
-    <%#render 'chat/buddylist', :participants => @participants %>
-  </div>
-</div>
-<div id="subscription">
-</div>
+<div id="subscription"></div>
+<script>
+  var courses = new StudyBuddy.Collections.Courses
+  courses.reset(<%= @courses.to_json.html_safe %>)
+  var locations = new StudyBuddy.Collections.Locations
+  locations.reset(<%= @locations.to_json.html_safe %>)
+</script>

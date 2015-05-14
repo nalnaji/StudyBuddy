@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :locations
   resources :courses
+  resources :chats
 	devise_for :users, :controllers => { registrations: 'registrations' , 
 																			 omniauth_callbacks: 'omniauth_callbacks' }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
     get 'locations/course/:course_id' => 'locations#show_for_course', :defaults => {:format => 'json'}
     get 'courses/search/:query' => 'courses#search', :defaults => {:format => 'json'}
     get 'locations/search/:query/:course_id' => 'locations#search', :defaults => {:format => 'json'}
+    get 'chats/course/:course_id/location/:location_id' => 'chats#get_by_course_and_location', :defaults => {:format => 'json'}
   end
 end

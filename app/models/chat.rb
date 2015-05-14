@@ -7,4 +7,8 @@ class Chat < ActiveRecord::Base
 	def number_of_participants
 		self.users.count
 	end
+
+  def as_json(options={})
+    super(:except => [:created_at, :updated_at])
+  end
 end

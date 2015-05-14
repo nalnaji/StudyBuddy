@@ -7,11 +7,15 @@ class StudyBuddy.Collections.Courses extends Backbone.Collection
 
   model: StudyBuddy.Models.Course
 
+  comparator: (course) ->
+    -course.get('number_of_students')
+
   initialize: ->
     @query = ''
     @selected = null
     @listenTo StudyBuddy.vent, 'tick:10secs', @poll
-
+    @listenTo this, 'sync', @sort
+  
   poll: ->
     this.fetch()
 
@@ -26,6 +30,7 @@ class StudyBuddy.Collections.Courses extends Backbone.Collection
       @selected.set('selected', false)
     course.set('selected', true)
     @selected = course
+    console.log "selected course"
     StudyBuddy.vent.trigger 'courses:selected', @selected
 
   resetSelected: ->

@@ -1,0 +1,17 @@
+<h2>Chatroom</h2>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Chat for <%= @chat.course.get('name') %>
+    in <%= @chat.location.get('name') %></h3>
+  </div>
+  <div class="page-height">
+    <div id="chat" class="panel-body">
+    </div>
+  </div>
+  <div class="input-group">
+    <input id="new_message" type="text" class="form-control"/>
+    <span class="input-group-btn">
+      <input type="submit" value="Send" class="btn btn-primary"/>
+    </span>
+  </div>
+</div>
