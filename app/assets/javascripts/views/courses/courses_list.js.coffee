@@ -4,6 +4,7 @@ class StudyBuddy.Views.CoursesList extends Backbone.View
   initialize: ->
     @listenTo @collection, 'remove', @update
     @listenTo @collection, 'add', @update
+    @listenTo @collection, 'sort', @update
 
   events:
     'keyup #search_courses': 'search'
